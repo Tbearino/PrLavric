@@ -1,0 +1,181 @@
+/* ============================================================
+   Pr Lavrič — Website Stylesheet
+   All design tokens merged: fonts, colors, typography, spacing, elevation
+   ============================================================ */
+
+/* Google Fonts — Kalam (display), Playfair Display (headings), Jost (body/UI) */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ---- Colors --------------------------------------------- */
+  --cream:        #F5EFE2;
+  --cream-card:   #FAF6EC;
+  --sand:         #E8DECA;
+  --clay:         #CFC7B4;
+  --input-sand:   #EDE5D4;
+  --espresso:     #231E14;
+  --olive:        #6B6044;
+  --forest:       #3B5440;
+  --forest-soft:  #4A7058;
+  --sage:         #6B8C72;
+  --gold:         #C08B3A;
+  --gold-deep:    #8B6914;
+  --clay-red:     #c0392b;
+
+  /* Semantic aliases */
+  --background:            var(--cream);
+  --foreground:            var(--espresso);
+  --card:                  var(--cream-card);
+  --card-foreground:       var(--espresso);
+  --popover:               var(--cream-card);
+  --popover-foreground:    var(--espresso);
+  --primary:               var(--forest);
+  --primary-foreground:    var(--cream);
+  --secondary:             var(--sand);
+  --secondary-foreground:  var(--espresso);
+  --muted:                 var(--clay);
+  --muted-foreground:      var(--olive);
+  --accent:                var(--gold);
+  --accent-foreground:     var(--espresso);
+  --destructive:           var(--clay-red);
+  --destructive-foreground:var(--cream);
+
+  --border:           rgba(35, 30, 20, 0.12);
+  --border-strong:    rgba(35, 30, 20, 0.24);
+  --input:            transparent;
+  --input-background: var(--input-sand);
+  --switch-background:var(--clay);
+  --ring:             rgba(192, 139, 58, 0.40);
+
+  /* Data viz */
+  --chart-1: var(--gold);
+  --chart-2: var(--forest);
+  --chart-3: var(--sage);
+  --chart-4: var(--gold-deep);
+  --chart-5: var(--forest-soft);
+
+  /* Overlay scrims */
+  --scrim-soft: rgba(35, 30, 20, 0.25);
+  --scrim-deep: rgba(35, 30, 20, 0.75);
+
+  /* ---- Typography ----------------------------------------- */
+  --font-handwritten: 'Kalam', cursive;
+  --font-serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Jost', system-ui, -apple-system, sans-serif;
+  --font-display:var(--font-serif);
+  --font-body:   var(--font-sans);
+  --font-ui:     var(--font-sans);
+
+  --weight-light:    300;
+  --weight-normal:   400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+
+  /* Type scale */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.5rem;
+  --text-5xl:  3.2rem;
+  --text-6xl:  4rem;
+  --text-7xl:  6rem;
+
+  /* Fluid display sizes */
+  --display-hero:    clamp(3rem, 8vw, 6rem);
+  --display-section: clamp(2rem, 4vw, 3rem);
+  --display-large:   clamp(2rem, 4vw, 3.2rem);
+
+  /* Line heights */
+  --leading-display: 1.05;
+  --leading-tight:   1.2;
+  --leading-snug:    1.4;
+  --leading-body:    1.7;
+  --leading-relaxed: 1.85;
+
+  /* Letter spacing */
+  --tracking-tight:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.05em;
+  --tracking-eyebrow: 0.3em;
+  --tracking-eyebrow-loose: 0.4em;
+
+  /* Semantic role tokens */
+  --text-display:  var(--font-serif);
+  --text-heading:  var(--font-serif);
+  --text-body-ff:  var(--font-sans);
+  --text-label-ff: var(--font-sans);
+
+  /* ---- Spacing -------------------------------------------- */
+  --space-0:  0;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-28: 7rem;
+
+  --container-max: 80rem;
+  --gutter:        1.5rem;
+  --gutter-lg:     3rem;
+  --section-y:     clamp(5rem, 10vw, 7rem);
+
+  /* Radius — brand is sharp-cornered */
+  --radius:      0;
+  --radius-sm:   0;
+  --radius-md:   0;
+  --radius-lg:   0;
+  --radius-full: 9999px;
+
+  --border-width:        1px;
+  --border-accent-width: 2px;
+
+  /* Motion */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:    200ms;
+  --dur-base:    300ms;
+  --dur-slow:    500ms;
+  --dur-image:   700ms;
+  --hover-zoom:  1.04;
+
+  /* ---- Elevation ------------------------------------------ */
+  --shadow-none:  none;
+  --shadow-sm:    0 1px 2px rgba(35, 30, 20, 0.06);
+  --shadow-card:  0 8px 24px rgba(35, 30, 20, 0.08);
+  --shadow-float: 0 14px 36px rgba(35, 30, 20, 0.18);
+  --shadow-modal: 0 24px 70px rgba(35, 30, 20, 0.35);
+
+  --hero-veil-vertical:
+    linear-gradient(to bottom,
+      rgba(35, 30, 20, 0.05) 0%,
+      rgba(35, 30, 20, 0.25) 45%,
+      rgba(35, 30, 20, 0.75) 100%);
+  --hero-veil-horizontal:
+    linear-gradient(to right,
+      rgba(35, 30, 20, 0.30) 0%,
+      transparent 55%);
+
+  --backdrop:      rgba(35, 30, 20, 0.70);
+  --backdrop-blur: 4px;
+}
+
+/* ---- Base Reset ------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+img { display: block; max-width: 100%; }
