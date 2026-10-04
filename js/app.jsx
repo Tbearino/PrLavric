@@ -5,6 +5,11 @@ function App() {
   const [scrolled, setScrolled] = React.useState(false);
   const [active, setActive] = React.useState(null);
   const [lbIdx, setLbIdx] = React.useState(null);
+  // Current language ("sl" or "en"). Changing it re-renders the whole page.
+  const [lang, setLangState] = React.useState(window.getLang());
+  const switchLang = (l) => { window.setLang(l); setLangState(l); };
+  // Look the open accommodation up by id so its text follows the language
+  const activeAcc = active && window.accommodations.find((a) => a.id === active.id);
   const ref = React.useRef(null);
 
   React.useEffect(() => {
@@ -22,7 +27,7 @@ function App() {
 
   return (
     <div ref={ref} style={{ position: "relative", height: "100vh", overflowY: "auto" }}>
-      <Nav scrolled={scrolled} onNav={nav} />
+      <Nav scrolled={scrolled} onNav={nav} lang={lang} onLang={switchLang} />
       <Hero onNav={nav} />
       <Intro />
       <Story onNav={nav} />
@@ -35,9 +40,9 @@ function App() {
       <Contact />
       <Gallery onLightbox={(i) => setLbIdx(i)} />
       <Footer onNav={nav} />
-      {active && (
+      {activeAcc && (
         <AccommodationModal
-          acc={active}
+          acc={activeAcc}
           onClose={() => setActive(null)}
           onBook={() => { setActive(null); nav("contact"); }}
         />
@@ -59,7 +64,7 @@ function boot() {
   if (
     window.Nav && window.Accommodations && window.AccommodationModal &&
     window.Icon && window.PatternBg && window.StampLogo &&
-    window.FadeIn && window.Blog && window.CtaBand && window.Lightbox
+    window.tr && window.FadeIn && window.Blog && window.CtaBand && window.Lightbox
   ) {
     ReactDOM.createRoot(document.getElementById("root")).render(<App />);
   } else {

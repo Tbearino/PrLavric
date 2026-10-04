@@ -8,8 +8,8 @@ function Blog() {
       <div style={{ maxWidth: "80rem", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-            <bdsk.Eyebrow style={{ display: "block", marginBottom: "1rem" }}>From the farm journal</bdsk.Eyebrow>
-            <bdsk.SectionHeading align="center" emphasis="stories">Vera's</bdsk.SectionHeading>
+            <bdsk.Eyebrow style={{ display: "block", marginBottom: "1rem" }}>{tr("blog.eyebrow")}</bdsk.Eyebrow>
+            <bdsk.SectionHeading align="center" emphasis={tr("blog.hEm")}>{tr("blog.h")}</bdsk.SectionHeading>
           </div>
         </FadeIn>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "2.5rem" }}>
@@ -36,7 +36,7 @@ function Blog() {
                 </p>
                 <div style={{ marginTop: "1rem" }}>
                   <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.8125rem", color: "var(--accent)", display: "inline-flex", alignItems: "center", gap: 6 }}>
-                    Read more <Icon name="ArrowRight" size={12} color="var(--accent)" />
+                    {tr("blog.more")} <Icon name="ArrowRight" size={12} color="var(--accent)" />
                   </span>
                 </div>
               </article>
@@ -55,20 +55,20 @@ function CtaBand({ onNav }) {
       <StampWatermark color="var(--cream)" opacity={0.04} size={320} position="right" />
       <div style={{ maxWidth: "56rem", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
         <FadeIn>
-          <bdsk.Eyebrow tone="light" style={{ display: "block", marginBottom: "1.25rem" }}>Reservations open</bdsk.Eyebrow>
+          <bdsk.Eyebrow tone="light" style={{ display: "block", marginBottom: "1.25rem" }}>{tr("cta.eyebrow")}</bdsk.Eyebrow>
           <h2 style={{ fontFamily: "var(--font-serif)", fontWeight: 400, fontSize: "clamp(1.5rem, 3vw, 2.25rem)", color: "var(--cream)", lineHeight: 1.15, margin: "0 0 1rem" }}>
-            Join us <em style={{ fontStyle: "italic" }}>at the table</em>
+            {tr("cta.h")} <em style={{ fontStyle: "italic" }}>{tr("cta.hEm")}</em>
           </h2>
           <p style={{ fontFamily: "var(--font-sans)", fontWeight: 300, fontSize: "1rem", lineHeight: 1.7, color: "rgba(245,239,226,0.65)", maxWidth: "32rem", margin: "0 auto 2rem" }}>
-            Vera answers every inquiry personally, usually within a few hours. Tell us about your plans — she'd love to hear from you.
+            {tr("cta.text")}
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <bdsk.Button variant="outline" size="lg" tone="dark" onClick={() => onNav("contact")}>
-              Send an enquiry
+              {tr("cta.btn")}
             </bdsk.Button>
           </div>
           <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.75rem", color: "rgba(245,239,226,0.35)", marginTop: "1.25rem" }}>
-            We respond within 24 hours · We speak Slovenian, English and German
+            {tr("cta.note")}
           </p>
         </FadeIn>
       </div>

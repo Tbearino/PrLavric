@@ -13,9 +13,9 @@ function AccommodationModal({ acc, onClose, onBook }) {
       {/* Top bar */}
       <div style={{ position: "sticky", top: 0, zIndex: 10, background: "rgba(245,239,226,0.96)", backdropFilter: "blur(8px)", borderBottom: "1px solid var(--border)", padding: "0 3rem", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 8, fontFamily: "var(--font-sans)", fontSize: "0.875rem", color: "var(--muted-foreground)" }}>
-          <Icon name="ChevronLeft" size={16} color="var(--muted-foreground)" /> Back to accommodation
+          <Icon name="ChevronLeft" size={16} color="var(--muted-foreground)" /> {tr("modal.back")}
         </button>
-        <mdsk.Button variant="primary" size="sm" onClick={onBook}>Send enquiry</mdsk.Button>
+        <mdsk.Button variant="primary" size="sm" onClick={onBook}>{tr("modal.send")}</mdsk.Button>
       </div>
 
       {/* Hero image */}
@@ -39,7 +39,7 @@ function AccommodationModal({ acc, onClose, onBook }) {
               {acc.description}
             </p>
 
-            <h3 style={{ fontFamily: "var(--font-sans)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1rem" }}>What's included</h3>
+            <h3 style={{ fontFamily: "var(--font-sans)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--accent)", marginBottom: "1rem" }}>{tr("modal.included")}</h3>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "2.5rem" }}>
               {acc.features.map((f) => <mdsk.FeatureChip key={f}>{f}</mdsk.FeatureChip>)}
             </div>
@@ -57,11 +57,11 @@ function AccommodationModal({ acc, onClose, onBook }) {
             <div style={{ position: "sticky", top: 96, background: "var(--card)", border: "1px solid var(--border)", padding: "2rem" }}>
               <div style={{ fontFamily: "var(--font-serif)", fontSize: "1.5rem", color: "var(--foreground)", marginBottom: "0.5rem" }}>{acc.price}</div>
               <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.8125rem", color: "var(--muted-foreground)", lineHeight: 1.6, margin: "0 0 1.5rem" }}>
-                Includes breakfast from Vera's wood-fired kitchen. Minimum 2 nights.
+                {tr("modal.priceNote")}
               </p>
-              <mdsk.Button variant="primary" size="lg" onClick={onBook} style={{ width: "100%" }}>Send enquiry</mdsk.Button>
+              <mdsk.Button variant="primary" size="lg" onClick={onBook} style={{ width: "100%" }}>{tr("modal.send")}</mdsk.Button>
               <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.75rem", color: "var(--muted-foreground)", textAlign: "center", marginTop: "0.75rem" }}>
-                We respond within 24 hours
+                {tr("modal.respond")}
               </p>
             </div>
           </div>
